@@ -5,6 +5,7 @@ import requests  # type: ignore
 from spiffworkflow_connector_command.command_interface import CommandResultDictV1
 from spiffworkflow_connector_command.command_interface import ConnectorCommand
 import xmltodict
+import json
 
 
 class GetRequest(ConnectorCommand):
