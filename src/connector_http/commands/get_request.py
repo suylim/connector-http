@@ -29,7 +29,7 @@ class GetRequest(ConnectorCommand):
             auth = (self.basic_auth_username, self.basic_auth_password)
 
         try:
-            response = requests.get(self.url, self.params, headers=self.headers, auth=auth, timeout=300)
+            response = requests.get(self.url, self.params, headers=self.headers, auth=auth, timeout=300,verify=False)
 
             return {
                 "response": response.text,
