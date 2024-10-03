@@ -77,6 +77,7 @@ class HttpRequestBase:
                     "headers": self.headers,
                     "auth": auth,
                     "timeout": 300,
+                    "verify": False
                 }
                 if self.params is not None:
                     arguments["params"] = self.params
