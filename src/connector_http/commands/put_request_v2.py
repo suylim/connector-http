@@ -8,7 +8,7 @@ import xmltodict
 import json
 from requests.auth import HTTPDigestAuth
 
-class GetRequest(ConnectorCommand):
+class PutRequestV2(ConnectorCommand):
     def __init__(self,
         url: str,
         headers: dict[str, str] | None = None,
