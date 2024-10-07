@@ -33,7 +33,7 @@ class PutRequestV2(ConnectorCommand):
             auth=HTTPDigestAuth(self.basic_auth_username,self.basic_auth_password)
 
         try:
-            response = requests.request("PUT",self.url, self.params, headers=self.headers, auth=auth, data=self.data,timeout=300,verify=False)
+            response = requests.request("PUT",self.url, headers=self.headers, auth=auth, data=self.data,timeout=300,verify=False)
 
             return {
                 "response": response.text,
