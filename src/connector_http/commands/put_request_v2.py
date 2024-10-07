@@ -19,7 +19,6 @@ class PutRequestV2(ConnectorCommand):
     ):
         self.url = url
         self.headers = headers or {}
-        self.params = params or {}
         self.basic_auth_username = basic_auth_username
         self.basic_auth_password = basic_auth_password
         self.data = data or {}
