@@ -33,13 +33,21 @@ class PutRequestV2(ConnectorCommand):
             auth=HTTPDigestAuth(self.basic_auth_username,self.basic_auth_password)
 
         try:
-            response = requests.request("PUT",self.url, headers=self.headers, auth=auth, data=self.data,timeout=300,verify=False)
-
-            return {
-                "response": response.text,
-                "status": response.status_code,
-                "mimetype": "application/json",
-            }
+            if 'xml_convert' in self.headers.keys():
+                output_json=json.dumps(xmltodict.parse(self.data))
+                return {
+                    "response": output_json,
+                    "status": 200,
+                    "mimetype": "application/json",
+                }
+            else:
+                response = requests.request("PUT",self.url, headers=self.headers, auth=auth, data=self.data,timeout=300,verify=False)
+    
+                return {
+                    "response": response.text,
+                    "status": response.status_code,
+                    "mimetype": "application/json",
+                }
         except Exception as e:
             return {
                 "response": f'{"error": {e}}',
