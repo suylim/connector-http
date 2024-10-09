@@ -41,7 +41,7 @@ class PutRequestV2(ConnectorCommand):
                     "mimetype": "application/json",
                 }
             else:
-                response = requests.request("PUT",self.url, headers=self.headers, auth=auth, data=self.data,timeout=300,verify=False)
+                response = requests.request("PUT",self.url, headers=self.headers, auth=auth, data=self.data.encode('utf-8'),timeout=300,verify=False)
     
                 return {
                     "response": response.text,
